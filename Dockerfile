@@ -2,6 +2,7 @@
 FROM golang as builder
 
 ENV GO111MODULE=on
+ENV PUBLIC_URL=http://localhost:8080
 
 WORKDIR /app
 COPY go.mod .
