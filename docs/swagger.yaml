@@ -1,0 +1,18 @@
+info:
+  contact: {}
+  license: {}
+paths:
+  /ping:
+    get:
+      consumes:
+      - application/json
+      description: Application status.
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok
+          schema:
+            type: string
+      summary: Shows a very simple status report of the application.
+swagger: "2.0"
