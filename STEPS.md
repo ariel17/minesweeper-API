@@ -14,4 +14,19 @@ For this step I will use a Swagger plugin since it helps me to document the API
 along with drafts of structs and methods. There is a useful plugin for Golang
 to do this: [swag][1].
 
+The web framework chosen is [gin-gonic][2] since it is lightweight and easy to
+use, also is very well supported and have a solid community behind.
+
+The project layout will reflect functionality grouped by package. Each package
+should take responsibility over clear scopes and communicate to other objects
+about what is only necessary.
+
+* Games: configuration, game status and progression, time measuring, other
+  business rules. 
+* Users: registration, list of games created/participating.
+* Boards: Game rules, object representations and relations between them.
+* Storages: Client implementations to persist/load previous states.
+* Status: provides a simple report about the application health.
+
 [1]: https://github.com/swaggo/swag
+[2]: https://github.com/gin-gonic/gin
