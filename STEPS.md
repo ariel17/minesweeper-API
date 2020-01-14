@@ -31,8 +31,8 @@ about what is only necessary.
 ### Problems faced
 
 * Initializing Swagger docs: Had some trouble loading correctly the `docs`
-  package until I realised that the module need to be imported as anonymous
-  package.
+  package until I realised that the module need to be imported as an anonymous
+  one.
 
 [1]: https://github.com/swaggo/swag
 [2]: https://github.com/gin-gonic/gin
