@@ -1,6 +1,7 @@
 package main
 
 import (
+	"github.com/ariel17/minesweeper-API/config"
 	_ "github.com/ariel17/minesweeper-API/docs"
 	"github.com/ariel17/minesweeper-API/status"
 	"github.com/gin-gonic/gin"
@@ -14,7 +15,7 @@ func main() {
 
 func loadRoutes(r *gin.Engine) *gin.Engine {
 	status.LoadRoutes(r)
-	url := ginSwagger.URL("http://localhost:8080/swagger/doc.json") // The url pointing to API definition
+	url := ginSwagger.URL(config.PublicURL + "/swagger/doc.json") // The url pointing to API definition
 	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler, url))
 	return r
 }
