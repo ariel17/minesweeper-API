@@ -33,15 +33,31 @@ type Cell struct {
 	IsMine    bool    `json:"is_mine"`
 	Status    string  `json:"status"`
 	Adjacents []*Cell `json:"adjacents"`
+	Game      *Game   `json:"-"`
+}
+
+func newCell(game *Game, adjacents []*Cell) *Cell {
+	return &Cell{
+		Status:    coveredStatus,
+		Adjacents: adjacents,
+		Game:      game,
+	}
 }
 
 // Clear opens the content of the cell.
-func (c *Cell) Clear(g *Game) {
-	c.Status = cleanedStatus
-	if c.IsMine {
-		g.Blow()
-	} else {
-		// TODO clean adjacents
+func (c *Cell) Clear(caller *Cell) {
+	if caller == nil { // from user
+		c.Status = cleanedStatus
+		if c.IsMine {
+			c.Game.Blow()
+			return
+		}
+		for _, a := range c.Adjacents {
+			a.Clear(c)
+		}
+		// TODO make method
+		// } else if c.IsAdjacent(caller) && !c.IsMine {
+		// 	c.Status = cleanedStatus
 	}
 }
 
@@ -76,6 +92,10 @@ func (g *Game) build() {
 	g.board = make([][]*Cell, g.Config.Rows)
 	for i := range g.board {
 		g.board[i] = make([]*Cell, g.Config.Columns)
+		for j := range g.board[i] {
+			adjacents := []*Cell{}
+			g.board[i][j] = newCell(g, adjacents)
+		}
 	}
 }
 
