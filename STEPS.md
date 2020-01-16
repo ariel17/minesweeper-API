@@ -8,6 +8,8 @@
 
 ## Development
 
+* Current time spent: 1h
+
 ### Design and implement a documented RESTful API for the game (think of a mobile app for your API)
 
 For this step I will use a Swagger plugin since it helps me to document the API
