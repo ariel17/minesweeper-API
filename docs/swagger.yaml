@@ -1,7 +1,44 @@
+definitions:
+  games.Config:
+    properties:
+      columns:
+        type: integer
+      mines:
+        type: integer
+      rows:
+        type: integer
+    type: object
+  games.Game:
+    properties:
+      config:
+        $ref: '#/definitions/games.Config'
+        type: object
+      created_at:
+        type: string
+      finished_at:
+        type: string
+      id:
+        type: integer
+      status:
+        type: string
+    type: object
 info:
   contact: {}
   license: {}
 paths:
+  /games:
+    post:
+      consumes:
+      - application/json
+      description: New game instance.
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/games.Game'
+      summary: Create a new game instance with dummy configuration.
   /ping:
     get:
       consumes:

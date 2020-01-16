@@ -8,7 +8,7 @@
 
 ## Development
 
-* Current time spent: 1h
+* Current time spent: 2h
 
 ### Design and implement a documented RESTful API for the game (think of a mobile app for your API)
 
@@ -35,6 +35,8 @@ about what is only necessary.
 * Initializing Swagger docs: Had some trouble loading correctly the `docs`
   package until I realised that the module need to be imported as an anonymous
   one.
+* State machine definitions: I spent some time finding a clear meaning in for
+  states names.
 
 [1]: https://github.com/swaggo/swag
 [2]: https://github.com/gin-gonic/gin
