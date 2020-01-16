@@ -52,7 +52,7 @@ type Game struct {
 	Status     string     `json:"status"`
 	CreatedAt  time.Time  `json:"created_at"`
 	FinishedAt *time.Time `json:"finished_at,omitempty"`
-	board      [][]Cell   `json:"-"`
+	board      [][]*Cell  `json:"-"`
 }
 
 // New creates a new instance of the game.
@@ -73,9 +73,9 @@ func New() *Game {
 }
 
 func (g *Game) build() {
-	g.board = make([][]Cell, g.Config.Rows)
+	g.board = make([][]*Cell, g.Config.Rows)
 	for i := range g.board {
-		g.board[i] = make([]Cell, g.Config.Columns)
+		g.board[i] = make([]*Cell, g.Config.Columns)
 	}
 }
 
