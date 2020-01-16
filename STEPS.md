@@ -8,7 +8,7 @@
 
 ## Development
 
-* Current time spent: 2h
+* Current time spent: 1h30m
 
 ### Design and implement a documented RESTful API for the game (think of a mobile app for your API)
 
