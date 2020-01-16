@@ -16,7 +16,6 @@ const (
 
 var (
 	games []*Game
-	id    int64
 )
 
 // Config holds the parameters on which the game will be created.
@@ -58,9 +57,8 @@ type Game struct {
 
 // New creates a new instance of the game.
 func New() *Game {
-	id++
 	g := Game{
-		ID: id,
+		ID: int64(len(games) + 1),
 		Config: Config{
 			Rows:    50,
 			Columns: 50,
